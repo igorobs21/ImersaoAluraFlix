@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const FormFieldWrapper = styled.div`
   position: relative;
@@ -63,6 +63,7 @@ const Input = styled.input`
     return hasValue && css`
         &:not([type='color']) + ${Label.Text} {
           transform: scale(.6) translateY(-10px);
+          background-color: red;
         }
       `;
   }
@@ -74,7 +75,7 @@ function FormField({
 }) {
   const fieldId = `id_${name}`;
   const tag = type === 'textarea' ? 'textarea' : 'input';
-  
+
   return (
     <FormFieldWrapper>
       <Label
@@ -99,7 +100,6 @@ function FormField({
 FormField.defaultProps = {
   type: 'text',
   value: '',
-  as: 'textarea'
 };
 
 FormField.propTypes = {
@@ -107,7 +107,6 @@ FormField.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
   value: PropTypes.string,
-  as: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };
 
