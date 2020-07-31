@@ -38,6 +38,19 @@ function CadastroCategoria() {
           throw new Error('Não foi possível pegar os dados');
         });
     }
+    /* * No caso de Deploy do backend, substituir segundo link pelo link gerado
+    pelo fornecedor e apagar o trecho de código acima * *
+    const URL_TOP = window.location.href.includes('localhost') ? 'http://localhost:8080/categorias' : 'http://adriflix.host.do.backend.com';
+    fetch(URL)
+      .then(async (respostaDoServer) => {
+        if (respostaDoServer.ok) {
+          const resposta = await respostaDoServer.json();
+          setCategorias(resposta);
+          return;
+        }
+        throw new Error('Não foi possível pegar os dados');
+      });
+    */
   }, []);
 
   return (
